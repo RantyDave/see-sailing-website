@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>Water Referencing</h1>
+        <p>If your recording contains magnetic heading and speed (through water or "log") data, See Sailing will automatically use water referenced calculations - and will mark them as such on <a href="management.html">your account page</a>.</p>
+        <img class="center" src="wr.png" alt="The movement triangle" style="max-width: 320px;">
+        <p>This is all well and good but ... what does Water Referenced actually mean?</p>
+        <h2>A quick introduction</h2>
+        <p>The wind blows the sails, the boat moves through the water. However, the water itself is often also moving and this means that our sog/cog velocities as reported by the GPS are not an accurate representation of the efficiency of our sailing.</p>
+        <img class="center" src="movement.png" alt="The movement triangle" style="max-width: 320px;">
+        <p>So to find accurate true wind, VMG, or target speeds we need to use "through water" measurements.</p>
+        <h2>On the See Sailing UI</h2>
+        <p>The only real hint that water referenced calculations have been used is that there are now two velocity arrows on the main display:</p>
+        <img class="center" src="boat-data.png" alt="See Sailing Boat Data" />
+        <p>Shown here is the through the water speed (6.4 knots) and pointing angle (60 degrees) of the yacht next to a light grey arrow that shows the course and speed as reported by GPS. It is tempting to assume that the difference between the two is the tide or current at that particular point - but any mis-calibration in the compass skews this result considerably so it is not to be trusted.</p>
+        <h2>Technical</h2>
+        <p>See Sailing needs an NMEA 2000 log and compass that emit the PGN 128259 and 127250 messages. It also relies on your compass returning the correct magnetic variation; and preferrs to receive attitude data as provided by your compass so ensuring this is correctly mounted is a good idea, too.</p>
+        <p>On the source maps, these messages are referred to as the 'spd' and 'hdg' streams. Thus disabling one or both of these will result in water referencing also being disabled.</p>
+    </body>
+</html>

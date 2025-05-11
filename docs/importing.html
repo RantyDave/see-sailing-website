@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <aside>NOTE: If you are using the See Sailing hardware gateway, this page probably doesn't apply.</aside>
+        <h1>Manually Importing</h1>
+        <p>See Sailing is currently compatible with log files produced by the B&G Hercules, B&G Triton, Expedition and Yacht Devices. Mail <a href="mailto:davep@see-sailing.com">me</a> if you have a different system you'd like to see supported.</p>
+        <p>Note that calculations internal to See Sailing are performed differently for B&G, Expedition and NMEA devices (which includes CANBoat and Yacht Devices). Performance data delivered by B&G is not recalculated before display/use on See Sailing - so numbers such as VMG are as-delivered from your sailing processor. Expedition is treated as one big device which provides streams of data, and calculatations are performed internally in See Sailing. The CANBoat format shows up as a direct NMEA import complete with source maps and (again) calculations are performed internally.</p>
+        <h2>Buying a Subscription</h2>
+        <p>There is a single 'tier' subscription that applies for a single boat with no additional usage charges. You have ninety days to ensure that See Sailing works for you before you'll be charged, and the hope is that any glitches or niggles can be sorted out by the end of that period.</p>
+        <p>Subscriptions are managed by Stripe and you start a new one by clicking here...</p>
+        <div class="bluebox"><a href="https://buy.stripe.com/fZeaGU9KY9OCdGg6ov" style="text-decoration: none; color: white;">SUBSCRIBE</a></div>
+        <p>When you've done that an email will be sent with your login details and a link to your account page (something like https://app.see-sailing.com/u/yourname). You can use this page to change your username, password and the name of your boat and this is described in detail on the <a href="management.html">management documentation pages</a>.</p>
+        <h2>Fetching a recording</h2>
+        <p><strong>For B&G Hercules/Triton</strong> the sailing processor has to be configured to record data before you start sailing by connecting to the internal web interface. After sailing, these recordings will need to be downloaded off the sailing processor before they can be sent to see-sailing. For help with either configuration or downloading please reference either the user manual for <a href="https://softwaredownloads.navico.com/Lowrance/FTP/Lowrance_Software%20-%20Copy/bg_documents/hercules_sailing_processor/HERCULES-SERIES_BOG_EN_988-13163-002_w.pdf">Hercules</a> or <a href="https://softwaredownloads.navico.com/Lowrance/FTP/Lowrance_Software%20-%20Copy/BG_Documents/Triton_Edge/TRITON_EDGE_QG_EN_988-13067-002_w.pdf">Triton Edge</a> depending on which device you have. If they arrive as a zip file you will need to expand this to make .csv files for See Sailing.</p>
+        <p><strong>For Expedition</strong> the log files are contained in the directory <span class="code">C:\ProgramData\Expedition\log</span>.</p>
+        <p><strong>For CANBoat</strong> the '.log' format can be imported directly. Note that this will 
+        <p><strong>For Yacht Devices</strong> you must first convert their log files to the CANboat '.log' format. This can be done with the <a href="https://www.yachtd.com/downloads/YDVRCONV.zip">YDVRCONV</a> utility.</p>
+        <h2>Uploading a recording</h2>
+        <p>First, go to your account page in See Sailing. If there is a "Login" link in the top right hand corner then use it to log in with your username and password, otherwise it should be showing your username along with a link to log out.</p>
+        <p>Your page will have a form to upload new recordings, it looks like this...</p>
+        <img class="center" src="upload-form.png" alt="Upload form" />
+        <p>Click the 'Choose files' button and select the .csv file for the recording you want to upload. Hercules and Triton often break large recordings into smaller ones and you will need to select all the parts of the recording together. Don't worry about the order in which they are selected, See Sailing will sort them out for you. Similarly, Expedition can put more than one recording into a single file. In this case, See Sailing will find the individual recordings for you. In both cases we are currently limited to 100MB for a single upload. If this is a problem for you, please let me know.</p>
+        <p>Finally, click the "upload" button to send the recording to See Sailing for processing. This will take a few seconds, then the page will refresh with a notification to let you know it succeeded...</p>
+        <img class="center" src="upload-banner.png" alt="Upload banner" />
+        <p>Shortly after, an email will arrive...</p>
+        <img class="smallcenter" src="upload-email.png" alt="Upload email" />
+        <p>...with a link you can click to be taken to the web interface for that recording. Success!</p>
+        <img class="center" src="/ui.png" alt="Upload success" style="max-width: 640px;"/>
+        <h2>Errors</h2>
+        <p>Errors you may receive include...</p>
+        <p><strong>Insufficient GPS data</strong> which means one of two things: either there is no GPS data in the recording, or the GPS data does not contain velocity information (speed and course over ground). Some GPS's are reluctant to provide velocity information while at dock and this is probably only something that occurs in short recordings.</p>
+    </body>
+</html>

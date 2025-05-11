@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>Technical Information</h1>
+        <p>In day to day use, you will probably never need any of this. However, it's useful and should be documented, so we can expect this page to grow over time.</p>
+        <h2>FAQ, UI oddities etc.</h2>
+        <p><strong>What does 'Insufficient GPS data' mean?</strong> This happens when either there is no GPS data at all, or the GPS is providing location but not velocity. In testing, some GPS's sent invalid velocity information when moored and generally fixing the problem is merely a question of waiting until the boat is moving and/or taking a longer capture.</p>
+        <p><strong>What does the import warning 'AttitudeData: ignored because not sourced from compass' mean?</strong> This is a mere warning showing the number if times attitude data was found on the NMEA bus but it was not sourced from the compass. If See Sailing finds a compass that provides attitude data it uses that in preference to other sources.,</p>
+        <p><strong>Why does a recording show different lengths from capture to display (shorter)?</strong> See Sailing 'edits' the capture to exclude data from the start where speed over ground is less than one knot. This does not apply to B&G imports, however.</p>
+        <h2>The See Sailing Gateway</h2>
+        <p><strong>What is the gateway's power consumption?</strong> The gateway consumes around 35ma (1 LEN).</p>
+        <p><strong>What is the format of the exported data?</strong> Exported data is a sqlite database consisting of a single table...</p>
+        <img class="center" src="export.png" />
+        <p>The fields are...</p>
+            <p class="inset"><strong>tsmillis</strong> timestamp when the packet was received <em>by the phone</em> in milliseconds since the epoch.</p>
+            <p class="inset"><strong>prio</strong> the priority level of the message (mostly irrelevant).</p>
+            <p class="inset"><strong>pgn</strong> the <a href="https://canboat.github.io/canboat/canboat.html#pgn-list">PGN number</a> of the received message.</p>
+            <p class="inset"><strong>src</strong> NMEA source ID of the received message.</p>
+            <p class="inset"><strong>data</strong> the PGN specific data carried by the message.</p>
+        <p>See Sailing only receives NMEA packets with a destination value of 255, hence the destination field is not recorded</p>
+        <h2>What format is expected from a CSV?</h2>
+        <p>Right now, See Sailing expects CSV's to be formatted to either B&G Hercules or B&G Triton specifications in codepage 1252 (saved by Windows). More specifically it is looking for headers containing the following strings:</p>
+            <p class="inset">'Date/Time'</p>
+            <p class="inset">'latitude' and 'longitude'</p>
+            <p class="inset">'Speed Over Ground' and 'Course Over Ground'</p>
+            <p class="inset">'Heading' and 'Magnetic Variation'</p>
+            <p class="inset">'Apparent Wind Speed' and 'Apparent Wind Angle'</p>
+            <p class="inset">'Velocity Made Good'</p>
+            <p class="inset">'True Wind Direction', 'True Wind Speed' and 'True Wind Angle'</p>
+            <p class="inset">'Heel' and 'Trim'</p>
+            <p class="inset">'Rudder Angle'</p>
+        <p>The fields are expected to be there even if (for instance) there's no rudder angle data. If you have some Hercules or Triton log files that don't fulfill this specification or otherwise will not import please send them to <a href="mailto:davep@see-sailing.com">me</a> and I'll see what I can do.</p>
+        <h2>Running a MacBook with XDR display at 120fps</h2>
+        <p>Some Apple laptops have a display marketed as "Liquid XDR" or with "Pro Motion". These displays can run at up to 120fps but not if you're using Safari as your web browser. To fix this, go to Safari, Settings, Feature flags, and <em>un-check</em> "Prefer Page Rendering Updates near 60fps". See Sailing will run quite happily at 120fps and it does make quite a difference as to how it feels.</p>
+        <img class="center" src="120fps.png" alt="Running Safari at 120fps" style="max-width: 480px;">
+        <p class="nogap">In practice this advice <em>probably</em> only applies to MacBook Pro models with the "Apple Silicon" (M-something) processor.</p>
+        <p>Chrome does not have the 60fps problem and will run at full speed.</p>
+        <h2>Shareable Location URLs</h2>
+        <p>The URL created when the 'clipboard' icon is clicked uses a simple format whereby four parameters are combined into a traditional query string. The parameters are:
+            <p class="inset"><strong>t</strong> the time within the recording to display as unix epoch time.</p>
+            <p class="inset"><strong>r</strong> whether or not the recording is running (true) or stopped.</p>
+            <p class="inset"><strong>s</strong> the currenty selected speed multiple.</p>
+            <p class="inset"><strong>c</strong> camera x,y,z position (units are opaque).</p>
+        <h2>Analysed Data Format</h2>
+        <p>See Sailing performs analysis according to the uploading format. For B&G, since their products are marketed as "processors", it does effectively nothing and merely presents the data as it is returned. Expedition logs are treated as raw data and hence pass through a number of internal filtering processes. The returned data is separated into two separate JSON formatted files, the metadata file and (obtained when you click 'meta') and the analysed data itself (from clicking 'analysed').</p>
+        <p class="boldfirst"><strong>The Metadata</strong> is designed to be small and allow the web application to begin working on the scene while the vast majority of the data is downloaded. It consists of:</p>
+            <p class="inset"><strong>t_start t_end</strong> are the start and end times as unix epoch times. No attempt is made to convert between different time zones.</p>
+            <p class="inset"><strong>t_frame</strong> the number of seconds represented by a single frame of data. IE the inverse of frame rate.</p>
+            <p class="inset"><strong>lat_start lon_start</strong> the latitude and longitude of the first point in the recording. This is not <em>necessarily</em> the same as the point marked as 'start' by the 'Set Start' button.</p>
+            <p class="inset"><strong>sog_max</strong> the maximum speed over ground achieved during the recording in knots.</p>
+            <p class="inset"><strong>water_referenced</strong> whether or not water referenced calculations were used during the analysis (1 is True).</p>
+            <p class="inset"><strong>variation</strong> the (assumed constant) magnetic variation of the recording in degrees.</p>
+            <p class="inset"><strong>features</strong> features enabled during the analysis of the data.</p>
+            <p class="inset"><strong>start_state</strong> the state when "Set Start" was clicked. Uses the same schema as for the shareable location URL.</p>
+            <p class="inset"><strong>legs</strong> an array describing the legs found when analysing the data. Each leg is described as thus:</p>
+            <p class="inset2"><strong>type</strong> either "beat", "reach" or "run".</p>
+            <p class="inset2"><strong>start end</strong> the start and end of the leg as unix epoch times.</p>
+            <p class="inset2"><strong>mean_twd</strong> the average true wind direction across the leg. This is calculated from averaging the reported (or calculated) true wind direction across the duration of the leg and not a geometric calculation considering the start and end positions.</p>
+            <p class="inset2"><strong>manoeuvres</strong> an array of manoeuvres found when analysing the leg. A manoeuvre is defined as when the true wind angle passes from positive to negative (or vice versa).</p>
+            <p class="inset3"><strong>start end</strong> the start and end of the manoeuvre as unix epoch times.</p>
+            <p class="inset2"><strong>stretches</strong> an array of stretches - the portions of 'straight line' sailing that exist between manoeuvres.</p>
+            <p class="inset3"><strong>start end</strong> the start and end of the stretch as unix epoch times.</p>
+            <p class="inset3"><strong>starboard</strong> whether the stretch is sailed on starboard tack, being defined as the true wind angle being positive.</p>
+            <p class="inset"><strong>nmea_sources</strong> an array describing nmea sources found during analysis consisting of:</p>
+            <p class="inset2">A tuple of the nmea source ID and list of See Sailing channels detected as coming from that source.</p>
+            <p class="inset"><strong>disabled_nmea_sources</strong> a list of the nmea source ID's that were disabled for analysis.</p>
+        <p class="boldfirst"><strong>The Analysed Data</strong> has a key named 'schema' that holds the schema; and a key named 'dframes' that holds the individual data frames. Note that the time for each data frame is calculated from the timings indicated in the metadata and (therefore) the analysed data cannot be considered complete without it.
+        <br><br>The presence of an item in the schema indicates that the channel it refers to is available in the data. Note also that while these channels are presented 'logically paired' where necessary, the data itself is stored as a flat list.</p>
+            <p class="inset"><strong>_lat _lon</strong> the latitude and longitude of this particular datapoint.</p>
+            <p class="inset"><strong>cog sog</strong> course over ground (degrees true) and speed over ground (knots).</p>
+            <p class="inset"><strong>heading</strong> heading (degrees magnetic).</p>
+            <p class="inset"><strong>pitch roll</strong> pitch and roll (degrees).</p>
+            <p class="inset"><strong>wspeed wangle</strong> apparent wind speed (knots) and angle relative to centreline (degrees, starboard positive).</p>
+            <p class="inset"><strong>twspeed twangle</strong> ground refererenced true wind speed (knots) and angle relative to centreline (degrees, starboard positive).</p>
+            <p class="inset"><strong>twdirection</strong> ground referenced true wind direction (degrees true).</p>
+            <p class="inset"><strong>vmg</strong> velocity made good in the direction of the true wind (knots).</p>
+            <p class="inset"><strong>rudder</strong> rudder angle (degrees, starboard positive).</p>
+            <p class="inset"><strong>wtwspeed wtwangle</strong> water referenced true wind speed (knots) and angle relative to centreline (degrees, starboard positive).</p>
+        <p style="padding-top: 2%;">A leading underscore shows that the data is not to be presented as a human readable quantity, others are rounded to a suitable precision.</p>
+    </body>
+</html>

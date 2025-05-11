@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="/ui.png" />
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>The Web Interface</h1>
+        <p>Let's start by naming the parts of the interface...</p>
+        <div class="features" style="margin: 0%; margin-top: 5%;">
+            <div class="flexcolumn vflex">
+                <p class="center" style="flex: 2; font-size: 80%;"><strong>The main view</strong>. Click and drag with your mouse or touch and drag to look around.<br><br>Mouse wheel or two finger pinch to zoom.</p>
+                <p class="center" style="flex: 1; font-size: 80%;"><strong>Overview timeline</strong>. Similarly click and drag to set the current time or zoom.</p>
+                <p class="center" style="flex: 1; font-size: 80%;"><strong>Scatter diagram</strong>. Compares two parameters.<br>Click to change view.</p>
+            </div>
+            <div class="flexcolumn vflex" style="justify-content: center;">
+                <img src="/ui.png" style="width: 100%;" alt="See Sailing Web Interface" />
+            </div>
+            <div class="flexcolumn vflex">
+                <p class="center" style="flex: 1; font-size: 80%;"><strong>Your username</strong><br>(with a link to log out)</p>
+                <p class="center" style="flex: 1; font-size: 80%;"><strong>The globe</strong> shows this location on a map</p>
+                <p class="center"style="flex: 1; font-size: 80%;"><strong>The clipboard</strong> copies a link for the current view to your clipboard</p>
+                <p class="center"style="flex: 1; font-size: 80%;"><strong>The box icon</strong> enters full screen mode.</p>
+                <p class="center"style="flex: 1; font-size: 80%;"><strong>Timestamp</strong> shows the time within the recording.</p>
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 2em;"><strong>The control bar</strong> (at the bottom) has controls for run/stop, and 'x1 x2 x5 x20' control the playback speed as multiples of 'real' time.</p>
+        <p>Those with a keyboard can also use the space bar to start/stop playback; the speed multiples are mapped to 1, 2, 5 and 0 (for x20); and the left and right arrow keys will move around the timeline. The exact amount of each move is 10% of the current displayed track, so for finer control with keyboard movements, zoom the timeline in or out.</p>
+        <p style="margin-top: 2em;"><strong>Set Start</strong> is a control that only appears if you're logged in and this is one of <em>your</em> recordings. Many recordings start with lots of getting out the the marina, hoisting sails etc. so you can put the recording at a sensible start time (and camera view) then press "Set Start" and the recording will start from this point next time you play it or share the URL.</p>
+        <h2>Overview Timeline</h2>
+        <img class="center" src="timeline.png" alt="See Sailing Overview Timeline" />
+        <p>We use this timeline to navigate around the recording; to get a feel for its overall structure; and by zooming in we can examine individual events - a tack, or a mishandled gust say - in greater detail.</p>
+        <p>Move around the timeline by 'paddling' around with your mouse or touch, exactly the same as scrolling on a phone except horizontally; or click/tap on an area to go to the beginning of that area. Zoom with the mousewheel or two finger pinch on mobile.</p>
+        <p>Further details about the timeline are in the <a href="numbers.html">numbers section</a> of the documentation.</p>
+        <h2>Sharing and Full Screen</h2>
+        <p><strong>The clipboard</strong> copies a link to the current view to your clipboard including camera location and playback speed. You can then paste it into an email, shared message or use it as a link in HTML. The <em>idea</em> is that you can use this as part of a group chat to share insights into a particular manoeuvre, event or whatever with your crew.</p>
+        <p><strong>Full screen</strong> sets the main view to occupy the entire screen and removes the graphs in the process. You can still look around, and the keyboard will still work. Press 'esc' to return to normal operation.</p>
+    </body>
+</html>

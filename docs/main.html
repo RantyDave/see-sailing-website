@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="/ui.png" />
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>The main view</h1>
+        <p>The main view shows your yacht, it's attitude, and (up to) three ribbons of data streaming away from it.</p>
+        <img class="center" src="historical.png" alt="See Sailing Historical Data" />
+        <p>These ribbons show the basic properties of the recording at the best sample rate we can obtain (typically 1Hz but on raw data recordings this can be as much as 5Hz). The ribbons are:</p>
+        <p class="inset"><strong>Mast Ribbon</strong> (upright, white/grey) shows the passage the mast has taken through the air, thus visualising heel and progress through manoeuvres.</p>
+        <p class="inset">Brightness represents the speed over ground as reported by GPS. White is "full speed", being the highest speed experienced in the last 60 seconds of data, with the grey showing reductions below this speed. In the picture above we can clearly see patches of grey around the tacks.</p>
+        <p class="inset"><strong>Wind Ribbon</strong> (flat, coloured) shows the wind field experienced by the yacht during the recording. It is drawn at a right angle to the true wind direction (an 'equal upwind' line).</p>
+        <p class="inset">Brightness represents the wind speed as reported by the anemometer. In the same way as the mast ribbon, bright implies "full speed" as in the best speed experienced in the last 60 seconds, and dullness shows reductions below this speed. In the picture above you can see a lull in the wind and reduction in speed over ground occurring simultaneously just before the second tack. If we were wondering what we did wrong to make the boat go slower, the answer is "nothing".</p>
+        <p class="inset">Colouring shows whether the current tack is positively biased (green) or negative (red) compared to the overall wind direction for the leg. See "A note on tack bias" on the <a href="numbers.html">numbers page</a>.</p>
+        <p class="inset"><strong>Rudder Ribbon</strong> (flat, blue) shows the movements of the rudder if this data is available along with a readout of the rudder angle. It is oriented as a tiller might be - thus 'to windward' implies 'bearing off'. The recording above shows a slight lee helm followed by significant rudder input to tack.</p>
+        <p style="padding-top: 10px;">The <a href="sailing.html">sailing</a> page shows a number of common scenarios using the ribbons and will help in growing familiarity.</p>
+    </body>
+</html>
