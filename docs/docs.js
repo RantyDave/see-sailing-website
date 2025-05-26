@@ -4,6 +4,7 @@ const sections = [
     ['app.html', 'Using the App'],
     ['importing.html', 'Manually Importing'],
     ['web.html', 'Web Interface'],
+    ['video.html', 'Uploading Video'],
     ['main.html', 'Main View'],
     ['referencing.html', 'Water Referencing'],
     ['numbers.html', 'Numbers'],
