@@ -11,7 +11,7 @@ bodyElement.insertAdjacentHTML('beforebegin', `
     <a href="/"><img id="logo" src="/logo-blue.svg" alt="See Sailing"></a>
     <span class="spacer"></span>
     <nav>
-        <a href="https://www.facebook.com/profile.php?id=61564439514836"><img class="fb" src="/fb.png" alt="See-Sailing on Facebook"></a>
+        <span class="navitem"><a class="navitem login" href="https://app.see-sailing.com/">LOGIN</a></span>
         <span class="navitem"><a class="navitem" href="/buy.html">BUY</a></span>
         <span class="navitem"><a class="navitem" href="/docs/index.html">DOCS</a></span>
         <span class="navitem"><a class="navitem" href="https://seesailing.substack.com">NEWS</a></span>

@@ -7,7 +7,7 @@
 }
 
 html {
-    min-width: 360px;
+    min-width: 380px;
 }
 
 p {
@@ -144,6 +144,13 @@ span.navitem {
 a.navitem {
   color: #777;
   text-decoration: none;
+}
+
+a.login {
+  background-color: #0074d9;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 img.fb {
