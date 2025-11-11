@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <title>See-Sailing: Connectivity</title>
+        <meta property="og:title" content="See-Sailing: Connectivity" />
+        <meta property="og:description" content="Illustrated options for connecting See Sailing to various forms of yacht electronics" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+    <img class="hero" src="connectivity-banner.jpeg" />
+    <div class="hero" style="margin-top: 3vw; margin-bottom: 5vw;">See Sailing<br>Connectivity</div>
+    <div class="boxed inset">
+        <h1 style="text-align: center;">NMEA 2000 → Bluetooth → Phone → Cloud</h1>
+        <img class="center" src="bluetooth-connectivity.png" />
+        <p>The easiest and best way to collect data and send it to the cloud. Use the See Sailing <a href="hardware.html">hardware gateway</a> to stream from your instrumentation to the mobile app; and upload over cellular or wifi with a single tap.</p>
+        <div class="inset" style="padding-top: 0px;">
+            <p>
+                &#9989; Simplest and least configuration.<br>
+                &#9989; Will use phone GPS if none on yacht.<br>
+                &#9989; Fast - around 130 messages/sec.<br>
+                &#9989; Highest resolution data.<br>
+                &#9989; Can transport attitude (heel/trim) data.<br>
+            </p>
+        </div>
+    </div>
+    <div class="boxed inset">
+        <h1 style="text-align: center;">NMEA 0183 → WiFi → Phone → Cloud</h1>
+        <img class="center" src="wifi-connectivity.png" />
+        <p>If you already have a WiFi gateway in your yacht it's likely compatible with the mobile app without any modifications. You can still upload over cellular or wifi with a single tap.</p>
+        <div class="inset" style="padding-top: 0px;">
+            <p>
+                &#9989; Compatible with generic WiFi bridge.<br>
+                &#9989; Will use phone GPS if none on yacht.<br>
+                &#x274C; Slower - 10-20 messages/sec.<br>
+                &#x274C; Low resolution data.<br>
+                &#x274C; No attitude data.<br>
+            </p>
+        </div>
+    </div>
+    <div class="boxed inset">
+        <h1 style="text-align: center;">Sailing Processor Logfile → Cloud</h1>
+        <img class="center" src="file-connectivity.png" />
+        <p>Those running a sailing processor, voyage recorder or laptop analysis software (such as Expedition) are able to upload their log files directly to the web. See Sailing supports parsing the files but getting them to the point where they can be uploaded (via a web form) is left to the user.</p>
+        <div class="inset" style="padding-top: 0px;">
+            <p>
+                &#9989; A simple visualisation solution for <strong>Expedition</strong> users.<br>
+                &#9989; Tested with logfiles from <strong>B&G Triton and Hercules</strong>.<br>
+                &#9989; Also compatible with CANBoat logs (for <strong>NMEA 2000</strong>) and <strong>NMEA 0183</strong> text logs.<br>
+                &#9989; No real limit on data resolution.<br>
+                &#x274C; User experience can be ... <em>awkward</em>.<br>
+                &#x274C; Cannot insert missing GPS data.<br>
+            </p>
+        </div>
+    </div>
+    </body>
+</html> 

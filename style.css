@@ -344,6 +344,11 @@ div.interactive > p {
   font-weight: bold;
 }
 
+div.interactive > a {
+  text-decoration: none; 
+  color: #333;
+}
+
 img.external-link {
   height: 20px;
   position: relative;
@@ -372,6 +377,15 @@ h2.center {
 h2.left {
   text-align: left;
   color: #eee;
+}
+
+div.inset {
+  padding: 3vw;
+}
+
+div.inset > p {
+  font-size: smaller;
+  margin-top: 2vw;
 }
 
 div.dev {
@@ -419,16 +433,6 @@ img.blockhero {
   margin-left: auto;
   margin-right: auto;
   z-index: -1;
-}
-
-/* partners */
-div.inset {
-  padding: 3vw;
-}
-
-div.inset > p {
-  font-size: smaller;
-  margin-top: 2vw;
 }
 
 /* buy */
