@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>Connecting to NMEA 0183 over WiFi</h1>
+        <p>Connecting over WiFi is much the same as Bluetooth except there are a few additional steps. You'll have to obtain a third party gateway which will either create a WiFi access point itself, or will need to be connected to one. The good news is that there are many vendors of these devices, and many of them are cheap. By boat standards.</p>
+        <img class="center" src="../wifi-connectivity.png" />
+        <p>The eventual "pattern" is the same as for Bluetooth: Data streams onto your phone and is uploaded to the cloud when you're ready. We're unable to record attitude data since it is not supported in NMEA 0183; and the (time) resolution of the uploaded data will be lower, although you will still get good results.</p>
+        <h2>Gateway Specifications</h2>
+        <p>The gateway itself should support being allocated a static IP although a well designed local DNS <em>should</em> work as well. Your phone will need to be connected to the same WiFi access point (or be otherwise routable). See Sailing only supports NMEA 0183 over TCP connections, and neither UDP nor NMEA 2000.</p>
+        <h2>Registering a New Gateway</h2>
+        <p>To connect your phone to your account we need to register your WiFi gateway in See Sailing itself. A virtual gateway, if you will. To start the process, scroll to the bottom of <a href="https://app.see-sailing.com/">your user page</a> to see a section called "NMEA0183 over WiFi". Use this form to create a gateway ID and associate it with your boat ... like this:</p>
+        <img class="center" src="create-gateway.png" style="width: 450px;" />
+        <p>This will create a new gateway, visible under "Gateways" on your user page.
+        <br>You'll be able to click on the link, just as with the Bluetooth gateways:</p>
+        <img class="center" src="virtual-gateway.png" style="width: 450px;" />
+        <p>WiFi uses the same mobile app as Bluetooth.</p>
+        <h2>Configuring WiFi on the App</h2>
+        <p>To configure WiFi: first connect to the correct WiFi access point; start the See Sailing app; and where it says "WiFi not connected", press the "connect" button. You should see a screen like this:</p>
+        <img class="center" src="wifi-config.png" style="width: 300px;" />
+        <p>Under "Gateway Id" enter the id value created above. The other two are the IP and port numbers specific to your configuration. Click OK and if all is well you should see something like this:</p>
+        <img class="center" src="wifi-connected.png" style="width: 300px;" />
+        <p>Note that the "lights" showing channel data arriving are now green instead of blue. Aside from that, the app now behaves exactly <a href="n2k-ble.html">as it does for Bluetooth</a>.</p>
+    </body>
+</html>
