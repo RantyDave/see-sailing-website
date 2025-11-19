@@ -139,11 +139,33 @@ span.navitem {
   margin-top: 11px;
   letter-spacing: 2px;
   font-size: 12px;
+  color: #777;
 }
 
 a.navitem {
   color: #777;
   text-decoration: none;
+}
+
+div.navitem-dropdown {
+  display: none;
+  position: absolute;
+  padding: 8px;
+  background-color: #fff;
+  box-shadow: grey 0px 5px 10px;
+}
+
+div.navitem-dropdown > p {
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+div.navitem-dropdown > p:hover {
+  background-color: #eee;
+}
+
+span.navitem:hover div.navitem-dropdown {
+  display: block;
 }
 
 a.login {
