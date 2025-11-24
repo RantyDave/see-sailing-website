@@ -45,6 +45,20 @@ h1 {
   }
 }
 
+h3 {
+  padding-top: 2vw;
+}
+
+ul {
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+}
+
+ul.sub {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+}
+
 h2 {
   font-size: 22px;
   clear: both;
@@ -455,6 +469,23 @@ img.blockhero {
   margin-left: auto;
   margin-right: auto;
   z-index: -1;
+}
+
+/* specs page */
+table.data-sources {
+  margin-left: 5%;
+  text-align: left;
+  font-size: smaller;
+}
+
+table.data-sources > thead th {
+  padding-right: 15px;
+  height: 50px;
+}
+
+table.data-sources > tbody td {
+  padding-right: 15px;
+  padding-bottom: 3px;
 }
 
 /* buy */

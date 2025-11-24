@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <title>See-Sailing: Full Specification</title>
+        <meta property="og:title" content="See-Sailing: Full Specification" />
+        <meta property="og:description" content="The full specification / feature list for the See Sailing web platform." />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+    <img class="hero" src="hardware-beta.jpeg" />
+    <div class="hero" style="margin-top: 3vw; margin-bottom: 5vw;">See Sailing<br>Specification / Feature List</div>
+    <div class="boxed">
+        <div class="inset">
+            <h3>Graphical Analysis</h3>
+            <ul>
+                <li><strong>Full 3D environment view</strong>, free orbit/zoom camera, WebGL.</li>
+                <li>Mast ribbon shows attitude and boat speed (highlights poor speed).</li>
+                <li>Wind ribbon shows wind strength (highlights poor strength), and current tack bias.</li>
+                <li>Velocity arrows show:</li>
+                <ul class="sub">
+                    <li>Speed through water and true wind angle</li>
+                    <li>VMG and current tack bias angle</li>
+                    <li>Shadow arrow shows GPS reported speed and direction</li>
+                </ul>
+                <li>True wind line shows current true wind direction and strength.</li>
+                <li>Real time manoeuvre losses and gains calculated and animated.</li>
+                <li>Rudder data overlaid if available.</li>
+                <li>Video upload and recompression, sync taken from in-camera timestamps.</li>
+            </ul>            
+            <ul>
+                <li><strong>Zoom/Pan overview graph</strong> shows beats, runs, reaches and manoeuvres in one place.</li>
+                <li>Upwind/Downwind values shown:</li>
+                    <ul class="sub">
+                        <li>True Windspeed</li>
+                        <li>Apparent Wind Angle</li>
+                        <li>Velocity Made Good</li>
+                    </ul>
+                <li>Average wind angle shown on per-tack basis.</li>
+                <li>VMG graphed against true wind angle both upwind and down.</li>
+            </ul>
+            <h3>Connectivity</h3>
+            <ul>
+                <li>NMEA 2000 → Bluetooth 4 → Mobile App → Cloud</li>
+                <li>NMEA 0183 → WiFi → Mobile App → Cloud</li>
+                <ul class="sub">
+                    <li>Bluetooth gateway supports circa 130 messages/sec</li>
+                    <li>Mobile App for both iPhone and Android</li>
+                    <li>Upload to cloud over WiFi or mobile data</li>
+                </ul>
+                <li>Log import from B&G, Expedition, NMEA 2000 (CanBoat) and timestamped NMEA 0183</li>
+                <li>Post-import source filtering for NMEA 2000.</li>
+            </ul>
+            <h3>Data Sources</h3>
+            <table class="data-sources">
+                <thead>
+                    <tr>
+                        <th style="width: 20vw;">Data</th><th>NMEA 2000</th><th>NMEA 0183</th><th>Expedition</th><th>B&G</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Position</td><td>PGN 129025</td><td>$xxGLL</td><td>Lat / Lon</td><td>latitude / longitude</td>
+                    </tr>
+                    <tr>
+                        <td>SOG / COG</td><td>PGN 129026</td><td>$xxVTG</td><td>SOG / COG</td><td>Speed Over Ground /<br>Course Over Ground</td>
+                    </tr>
+                    <tr>
+                        <td>AWS / AWA</td><td>PGN 130306</td><td>$xxVWR</td><td>AWS / AWA</td><td>Apparent Wind Speed /<br>Apparent Wind Angle</td>
+                    </tr>
+                    <tr>
+                        <td>Attitude</td><td>PGN 127257</td><td>-</td><td>Heel / Trim</td><td>Heel / Trim</td>
+                    </tr>
+                    <tr>
+                        <td>Heading</td><td>PGN 127250</td><td>$xxHDG</td><td>HDG / MagVar</td><td>Heading /<br>Magnetic Variation</td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td><td>PGN 128259</td><td>$xxVHW</td><td>BSP</td><td>Boat Speed</td>
+                    </tr>
+                    <tr>
+                        <td>Rudder</td><td>PGN 127245</td><td>$xxRSA</td><td>Rudder</td><td>Rudder Angle</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </body>
+</html> 

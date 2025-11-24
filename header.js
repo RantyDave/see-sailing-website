@@ -18,6 +18,7 @@ bodyElement.insertAdjacentHTML('beforebegin', `
             <div class="navitem-dropdown">
                 <p><a class="navitem" href="https://app.see-sailing.com/b/h2go/2025-1-13-15-50-46?t=1736739752.3665016&s=5&r=true&c=7251.11_-6339.22_96.46">DEMO</a></p>
                 <p><a class="navitem" href="/connectivity.html">CONNECTIVITY</a></p>
+                <p><a class="navitem" href="/spec.html">SPECS</a></p>
                 <p><a class="navitem" href="/hardware.html">HARDWARE</a></p>
                 <p><a class="navitem" href="/docs/index.html">DOCS</a></p>
             </div>
