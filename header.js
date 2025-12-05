@@ -17,6 +17,7 @@ bodyElement.insertAdjacentHTML('beforebegin', `
         <span class="navitem">MORE▼
             <div class="navitem-dropdown">
                 <p><a class="navitem" href="https://app.see-sailing.com/b/h2go/2025-1-13-15-50-46?t=1736739752.3665016&s=5&r=true&c=7251.11_-6339.22_96.46">DEMO</a></p>
+                <p><a class="navitem" href="https://app.see-sailing.com/b/boat-glen-mccauley/2025-4-5-11-13-59?t=1743815256.6291213&s=1&r=true&c=13228.31_-3668.00_4237.52">VIDEO SYNC</a></p>
                 <p><a class="navitem" href="/connectivity.html">CONNECTIVITY</a></p>
                 <p><a class="navitem" href="/spec.html">SPECS</a></p>
                 <p><a class="navitem" href="/hardware.html">HARDWARE</a></p>
