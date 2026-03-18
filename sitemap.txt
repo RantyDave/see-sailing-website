@@ -2,9 +2,8 @@ https://www.see-sailing.com/index.html
 https://www.see-sailing.com/connectivity.html
 https://www.see-sailing.com/hardware.html
 https://www.see-sailing.com/spec.html
-https://www.see-sailing.com/buy.html
+https://www.see-sailing.com/get.html
 https://www.see-sailing.com/privacy.html
-https://www.see-sailing.com/partnering.html
 https://www.see-sailing.com/docs/index.html
 https://www.see-sailing.com/docs/n2k-ble.html
 https://www.see-sailing.com/docs/0183-wifi.html

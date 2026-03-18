@@ -12,7 +12,7 @@ bodyElement.insertAdjacentHTML('beforebegin', `
     <span class="spacer"></span>
     <nav>
         <span class="navitem"><a class="navitem login" href="https://app.see-sailing.com/">LOGIN</a></span>
-        <span class="navitem"><a class="navitem" href="/buy.html">BUY</a></span>
+        <span class="navitem"><a class="navitem" href="/get.html">GET</a></span>
         <span class="navitem"><a class="navitem" href="https://seesailing.substack.com">NEWS</a></span>
         <span class="navitem">MORE▼
             <div class="navitem-dropdown">
@@ -31,7 +31,7 @@ bodyElement.insertAdjacentHTML('beforebegin', `
 
 bodyElement.insertAdjacentHTML('afterend', `
 <footer>
-    <p>More: <a href="/privacy.html">Privacy Policy</a> <a href="/partners.html">Partnering</a>
+    <p>More: <a href="/privacy.html">Privacy Policy</a>
     <span style="float: right;">Made in Wellington NZ, contact <a href="mailto:davep@see-sailing.com" style="color: #555;">David Preece</a>.</span></p>
 </footer>
 `)

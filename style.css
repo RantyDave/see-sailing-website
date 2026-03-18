@@ -163,6 +163,7 @@ a.navitem {
 
 div.navitem-dropdown {
   display: none;
+  z-index: 1;
   position: absolute;
   padding: 8px;
   background-color: #fff;
