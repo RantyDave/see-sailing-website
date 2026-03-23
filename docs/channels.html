@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script defer src="/header.js"></script>
+        <script defer src="docs.js"></script>
+        <script defer data-domain="see-sailing.com" src="https://plausible.io/js/script.js"></script>
+    </head>
+    <body>
+        <h1>Sensor Channels</h1>
+        <p>See Sailing performs it's calculations in a "water centric" fashion. Which is to say that speed is speed through water, heading is magnetic heading and the GPS velocity is not used for much. As a consequence the following channels <strong>need to be available</strong> in the data provided:</p>
+        <p class="inset">
+            Timestamps<br>
+            Speed through water<br>
+            Magnetic heading<br>
+            Wind speed, Wind angle<br>
+            GPS location, SOG/COG</p>
+        <p class="inset">It is also assumed the log will be more than 60 seconds long.</p> 
+        <p>And the following are <strong>optional</strong>:</p>
+        <p class="inset">
+            Magnetic variation (sourced from the compass in NMEA data)<br>
+            Pitch, Heel<br>
+            Rudder angle</p>
+        <p>If not present, the magnetic variation will be assumed to be zero. This also relies on your compass being correctly configured although dual GPS/compass units (such as B&G ZG100 or Lowrance Point 1) often configure themselves.</p>
+        <p>The pitch, heel and the rudder angle will just not be present on the display if missing.</p>
+        <h2>Things that can go wrong</h2>
+        <p><strong>Expedition log did not contain expected streams</strong> may be returned. This is because expedition logs are very flexible and may contain data such as start line calculations. These logs are ignored by See Sailing.</p>
+        <p><strong>Provided CSV is not in one of the recognised formats (B&G Hercules or Triton)</strong> See sailing cannot read arbitrary CSV files and is written around just these two formats. Having said that, if you have a Hercules or Triton file that is not working, please <a href="mailto:davep@zedkep.com">send it to me</a> and I'll work the problem.</p>
+        <h2>Mere warnings</h2>
+        <p>Warnings are more for your information if you're investigating an issue with your configuration, they may safely be ignored otherwise.</p>
+        <p><strong>AttitudeData: ignored because not sourced from compass</strong> More than one source of attitude data was found. In these cases we assume the attitude data sourced from the compass is to be used and other sources (such as a depth sounder) are ignored.</p>
+    </body>
+</html>

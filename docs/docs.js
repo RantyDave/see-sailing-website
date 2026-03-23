@@ -1,6 +1,7 @@
 const thispage = window.location.pathname.split('/').pop()
 const sections = [
     ['index.html', 'Docs'],
+    ['channels.html', 'Sensor Channels'],
     ['n2k-ble.html', 'Connecting: N2k'],
     ['0183-wifi.html', 'Connecting: 0183'],
     ['uploading.html', 'Uploading Logs'],
