@@ -8,6 +8,7 @@ https://www.see-sailing.com/docs/index.html
 https://www.see-sailing.com/docs/n2k-ble.html
 https://www.see-sailing.com/docs/0183-wifi.html
 https://www.see-sailing.com/docs/uploading.html
+https://www.see-sailing.com/docs/channels.html
 https://www.see-sailing.com/docs/management.html
 https://www.see-sailing.com/docs/app.html
 https://www.see-sailing.com/docs/sailing.html
